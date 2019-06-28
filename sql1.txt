@@ -1,0 +1,91 @@
+
+
+
+create table emp_info(Eid int(5) Primary key,
+                   Ename varchar(20) not null,
+                   DOB date not null,
+                   Gender varchar(10) not null,
+                   PhoneNo int(10) not null,
+                   EmailId varchar(20) not null,
+                   Designation varchar(20) not null,
+                   JoiningDate date not null,
+                   Salary int not null,
+                   MGR_ID int,
+                   DEPT_ID int);
+
+insert into emp_info(Eid,Ename,DOB,Gender,PhoneNo,EmailId,Designation,JoiningDate,Salary,MGR_ID,DEPT_ID)
+values (101,'Sandy',1997/02/03,'Male',15286838,'sandipanee345@gmail.com','Developer',2019/07/20,200000,103,01),
+       (102,'Raja',1997/04/05,'Male',682789299,'raja@gmail.com','Analyst',2019/09/08,380380,101,02),
+       (103,'Mansh',1996/09/03,'Female',23572537,'mansh@yahoo.com','CustomerSupport',2019/04/09,457458,102,03),
+       (104,'Rajsh',1995/02/03,'Male',547357838,'rajsh@gmail.com','VoiceProcess',2019/03/02,7689799,105,04),
+       (105,'Harish',1994/08/07,'Male',35628368,'harsh@gmail.com','Consultant',2019/02/02,2683876,104,05);
+
+create table emp_OtherInfo(Eid int(5) Primary key,
+                   BloodGroup varchar(5),
+                   PanNum varchar(20) not null,
+                   govId int(10) not null,
+                   isMarried boolean not null,
+                   nationality varchar(20) not null,
+                   Father_name varchar(20) not null,
+                   Mother_name varchar(20) not null,
+                   Spouse_name varchar(20),
+                   Husband_name varchar(20),
+                   bank_account int(20)
+                  );
+
+insert into emp_OtherInfo(Eid,BloodGroup,PanNum,govId,isMarried,nationality,Father_name,Mother_name,Spouse_name,Husband_name,bank_account)
+values(101,'O+','123AB4C',112345,true,'Indian','Suresh','Kiran','Mansh',null,1234567),
+      (102,'AB+','23445AB',12345,false,'Indian','Ramesh','nidhi',null,null,23445567),
+      (103,'A+' ,'12435TY',245646,true,'Indian','Gopal','puja',null,Sandy,456342768),
+      (104,'AB-','23455VB',456466,false,"Indian','Dinesh','Rani',null,null,473653846),
+      (105,'O-','243256AX',456675,false,'Indian','Rakesh','Rekha',null,null,45652765572);
+
+create table emp_AddressInfo(Eid int(5) not null,
+                        AddressType varchar(10) not null,
+                        Res_no varchar(10),
+                        Res_name varchar(20),
+                        Street varchar(20),
+                        Landmark varchar(20),
+                        city varchar(20),
+                        State varchar(20),
+                        PostalCode int(10)
+                        Primary(Eid,AddressType)
+                        );
+insert into emp_AddressInfo(Eid,AddressType,Res_no,Res_name,Street,Landmark,city,State,PostalCode)
+ values((101,'Present',1A,'Jalsa','Bandra','Borivili','Bombay','Maharastra',628728),
+       (101,'Permanent',1B,'Malsa','Anheri','RajBati','Pune','Maharastra',6248793),
+       (102,'Present',2C,'HSR','Murada','Rajanag','Bhubaneswar','Manglioe',6248794),
+       (102,'Permanent',2D,'Routam','Surat','Samso','Ranchi','Chattisgarh',6248795),
+       (103,'Present',3E,'Salsa','Jhansi','veero','Raipur','Jammu',6248796),
+       (103,'Permanent',3F,'Aalsa','dugcd','jairo','wuuwo','TamilNadu',6248797),
+       (104,'Present',4G,'kalalsa','jhansi','sero','guntur','AndhraPradesh',6248798),
+       (104,'Permanent',4H,'Goutam','rams','mario','sasaa','Karnataka',6248799),
+       (105,'Present',5I,'Ram_Nivas','jola','cairo','Pjhs','Odisha',6248790),
+       (105,'Permanent',5J,'Pathan','colive','lala','Pusd','Jharkand',6248791);
+        
+
+create table emp_EducationInfo(Eid int(5) not null,
+                        EducationType varchar(10) not null,
+                        University_Name varchar(10),
+                        Aggregate int(5),
+                        Primary(Eid,EducationType)
+                        );
+         
+insert into emp_EducationInfo(Eid,EducationType,University_Name,Aggregate)
+ values(101,'10th','kv',94),
+       (101,'10+2th','kv',80),
+       (101,'BE','KIIT',70),
+       (102,'10th','dps',86),
+       (102,'10+2th','dps',87),
+       (102,'B-Tech','IIT',82),
+       (103,'10th','DPS',81),
+       (103,'10+2th','DPS',82),
+       (103,'B-tech','NIT',88),
+       (104,'10th','Xavier',79),
+       (104,'10+2th','Xaviers',81),
+       (104,'B-Tech','BITS',82),
+       (105,'10th','Jspider',88),
+       (105,'10+2th','Jspider',89),
+       (105,'BE','IIIT',99);
+
+
